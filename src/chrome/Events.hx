@@ -1,19 +1,6 @@
 package chrome;
 
-private extern class EventBase<T:Function> {
-	/**
-	* Deregisters an event listener _callback_ from an event.
-	*
-	* @param callback Listener that shall be unregistered.
-	*/
-	function removeListener( callback : T ) : Void;
-
-	/**
-	* @param callback Listener whose registration status shall be tested.
-	* @returns True if _callback_ is registered to the event.
-	*/
-	function hasListener( callback : T ) : Bool;
-
+private extern class EventBase {
 	/**
 	* @returns True if any event listeners are registered to the event.
 	*/
@@ -47,13 +34,26 @@ private extern class EventBase<T:Function> {
 /**
 * An object which allows the addition and removal of listeners for a Chrome event.
 */
-extern class Event<T:Function> extends EventBase<T> {
+extern class Event<T:Function> extends EventBase {
 	/**
 	* Registers an event listener _callback_ to an event.
 	*
 	* @param callback Called when an event occurs. The parameters of this function depend on the type of event.
 	*/
 	function addListener( callback : T ) : Void;
+
+	/**
+	* Deregisters an event listener _callback_ from an event.
+	*
+	* @param callback Listener that shall be unregistered.
+	*/
+	function removeListener( callback : T ) : Void;
+
+	/**
+	* @param callback Listener whose registration status shall be tested.
+	* @returns True if _callback_ is registered to the event.
+	*/
+	function hasListener( callback : T ) : Bool;
 }
 
 /**
@@ -61,9 +61,13 @@ index.d.ts:
   // This is used to support addListener() where additional parameters are supported.
   // The name is detected inside the developer.chrome.com repository and special actions are taken.
 */
-extern class CustomChromeEvent<T:Function> extends EventBase<T> {
+extern class CustomChromeEvent<T:Function> extends EventBase {
 
 	final addListener : T;
+
+	function removeListener( callback : Function ) : Void;
+
+	function hasListener( callback : Function ) : Bool;
 }
 
 typedef Rule = {

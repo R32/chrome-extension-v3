@@ -527,7 +527,7 @@ typedef UploadData = {
 	/**
 	* An ArrayBuffer with a copy of the data.
 	*/
-	var ?bytes : Any;
+	var ?bytes : Dynamic;
 
 	/**
 	* A string with the file's path and name.

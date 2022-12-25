@@ -238,7 +238,7 @@ private typedef SetDetails = {
 	/**
 	* The setting applied by this rule. See the description of the individual ContentSetting objects for the possible values.
 	*/
-	var setting : Any;
+	var setting : Dynamic;
 
 	/**
 	* Where to set the setting (default: regular).

@@ -98,9 +98,9 @@ extern class Tabs {
 	*
 	* @param message The message to send. This message should be a JSON-ifiable object.
 	*/
-	overload static function sendMessage( tabId : Int, message : Any, callback : Any->Void ) : Void;
-	overload static function sendMessage( tabId : Int, message : Any,  options : {?frameId : Int, ?documentId : String}, callback : Any->Void ) : Void;
-	overload static function sendMessage( tabId : Int, message : Any, ?options : {?frameId : Int, ?documentId : String} ) : Promise<Any>;
+	overload static function sendMessage( tabId : Int, message : Dynamic, callback : Dynamic->Void ) : Void;
+	overload static function sendMessage( tabId : Int, message : Dynamic,  options : {?frameId : Int, ?documentId : String}, callback : Dynamic->Void ) : Void;
+	overload static function sendMessage( tabId : Int, message : Dynamic, ?options : {?frameId : Int, ?documentId : String} ) : Promise<Dynamic>;
 
 	/**
 	* Creates a new tab.

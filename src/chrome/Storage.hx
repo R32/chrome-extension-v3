@@ -52,12 +52,12 @@ typedef StorageChange = {
 	/**
 	* The old value of the item, if there was an old value.
 	*/
-	var ?oldValue : Any;
+	var ?oldValue : Dynamic;
 
 	/**
 	* The new value of the item, if there is a new value.
 	*/
-	var ?newValue : Any;
+	var ?newValue : Dynamic;
 }
 
 extern class StorageArea {

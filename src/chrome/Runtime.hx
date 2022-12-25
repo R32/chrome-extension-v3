@@ -89,25 +89,25 @@ extern class Runtime {
 	* Fired when a message is sent from either an extension process
 	* (by {@link runtime.sendMessage}) or a content script (by {@link tabs.sendMessage}).
 	*/
-	static final onMessage : Event<(message : Any, sender : MessageSender, sendResponse : ()->Void)->Void> ;
+	static final onMessage : Event<(message : Dynamic, sender : MessageSender, sendResponse : ()->Void)->Void> ;
 	/**
 	*  Note return true; in the listener: this tells the browser that
 	* you intend to use the sendResponse argument after the listener has returned
 	*/
 	@:native("onMessage")
-	static final onMessageAsync : Event<(message : Any, sender : MessageSender, sendResponse : ()->Void)->Bool>;
+	static final onMessageAsync : Event<(message : Dynamic, sender : MessageSender, sendResponse : ()->Void)->Bool>;
 
 	/**
 	* Fired when a message is sent from another extension/app
 	* (by {@link runtime.sendMessage}).Cannot be used in a content script.
 	*/
-	static final onMessageExternal : Event<(message : Any, sender : MessageSender, sendResponse : ()->Void)->Void> ;
+	static final onMessageExternal : Event<(message : Dynamic, sender : MessageSender, sendResponse : ()->Void)->Void> ;
 	/**
 	*  Note return true; in the listener: this tells the browser that
 	* you intend to use the sendResponse argument after the listener has returned
 	*/
 	@:native("onMessageExternal")
-	static final onMessageExternalAsync : Event<(message : Any, sender : MessageSender, sendResponse : ()->Void)->Bool>;
+	static final onMessageExternalAsync : Event<(message : Dynamic, sender : MessageSender, sendResponse : ()->Void)->Bool>;
 
 	/**
 	* Fired when an app or the device that it runs on needs to be restarted.
@@ -257,10 +257,10 @@ extern class Runtime {
 	* @param extensionId The ID of the extension/app to send the message to. If omitted, the message will be sent to your own extension/app. Required if sending messages from a web page for [web messaging](https://developer.chrome.com/docs/extensions/manifest/externally_connectable).
 	* @param message The message to send. This message should be a JSON-ifiable object.
 	*/
-	overload static function sendMessage( message : Dynamic, options : {?includeTlsChannelId : Bool}, callback : Any->Void ) : Void;
-	overload static function sendMessage( extensionId : String, message : Dynamic, options : {?includeTlsChannelId : Bool}, callback : Any->Void ) : Void;
-	overload static function sendMessage( message : Dynamic, ?options : {?includeTlsChannelId : Bool} ) : Promise<Any>;
-	overload static function sendMessage( extensionId : String, message : Dynamic, ?options : {?includeTlsChannelId : Bool} ) : Promise<Any>;
+	overload static function sendMessage( message : Dynamic, options : {?includeTlsChannelId : Bool}, callback : Dynamic->Void ) : Void;
+	overload static function sendMessage( extensionId : String, message : Dynamic, options : {?includeTlsChannelId : Bool}, callback : Dynamic->Void ) : Void;
+	overload static function sendMessage( message : Dynamic, ?options : {?includeTlsChannelId : Bool} ) : Promise<Dynamic>;
+	overload static function sendMessage( extensionId : String, message : Dynamic, ?options : {?includeTlsChannelId : Bool} ) : Promise<Dynamic>;
 
 	/**
 	* Send a single message to a native application.
@@ -269,8 +269,8 @@ extern class Runtime {
 	* @param message The message that will be passed to the native messaging host.
 	* @chrome-permission nativeMessaging
 	*/
-	overload static function sendNativeMessage( application : String, message : Dynamic, callback : Any->Void ) : Void;
-	overload static function sendNativeMessage( application : String, message : Dynamic ) : Promise<Any>;
+	overload static function sendNativeMessage( application : String, message : Dynamic, callback : Dynamic->Void ) : Void;
+	overload static function sendNativeMessage( application : String, message : Dynamic ) : Promise<Dynamic>;
 
 	/**
 	* Returns information about the current platform.
@@ -320,7 +320,7 @@ typedef Port = {
 	* This event is fired when {@link Port.postMessage postMessage} is called
 	* by the other end of the port.
 	*/
-	var onMessage : Event<(Any, Port)->Void>;
+	var onMessage : Event<(Dynamic, Port)->Void>;
 
 	/**
 	* Immediately disconnect the port. Calling `disconnect()` on an
@@ -334,7 +334,7 @@ typedef Port = {
 	*
 	* @param message The message to send. This object should be JSON-ifiable.
 	*/
-	function postMessage( message : Any ) : Void;
+	function postMessage( message : Dynamic ) : Void;
 }
 
 /**

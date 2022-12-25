@@ -162,7 +162,7 @@ typedef ScriptInjection = {
 	*
 	* @since Chrome 92
 	*/
-	var ?args : Array<Any>;
+	var ?args : Array<Dynamic>;
 
 	/**
 	* The path of the JS or CSS files to inject, relative to the extension's
@@ -220,7 +220,7 @@ typedef InjectionResult = {
 	/**
 	* The result of the script execution.
 	*/
-	var ?result : Any;
+	var ?result : Dynamic;
 
 	/**
 	* The frame associated with the injection.

@@ -84,12 +84,12 @@ typedef Rule = {
 	/**
 	* List of conditions that can trigger the actions.
 	*/
-	var conditions : Array<Any>;
+	var conditions : Array<Dynamic>;
 
 	/**
 	* List of actions that are triggered if one of the conditions is fulfilled.
 	*/
-	var actions : Array<Any>;
+	var actions : Array<Dynamic>;
 
 	/**
 	* Optional priority of this rule. Defaults to 100.

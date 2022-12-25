@@ -189,7 +189,7 @@ private typedef SetIconDetails = {
 	* of the icon in the UI. At least one image must be specified.
 	* Note that 'details.imageData = foo' is equivalent to 'details.imageData = {'16': foo}'
 	*/
-	var ?imageData : EitherType<BrowserAction.ImageDataType, Dynamic<Any>>;
+	var ?imageData : EitherType<BrowserAction.ImageDataType, Dynamic>; // Dynamic is {[name: string]: any}
 
 	/**
 	* Either a relative image path or a dictionary {size -> relative image path}

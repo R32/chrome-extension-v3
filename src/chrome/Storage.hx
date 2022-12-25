@@ -137,7 +137,7 @@ extern class StorageArea {
 }
 
 private typedef Keys = EitherType<String, Array<String>>;
-private typedef Values = Dynamic<Any>;
+private typedef Values = Dynamic;
 
 extern class StorageAreaSync extends StorageArea {
 	/**

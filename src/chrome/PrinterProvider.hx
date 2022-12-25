@@ -26,7 +26,7 @@ extern class PrinterProvider {
 	* @since Chrome 45
 	*/
 	static final onGetUsbPrinterInfoRequested : Event<(
-		device : Dynamic<Any>, // TODO: usb.Device,
+		device : Dynamic, // TODO: usb.Device,
 		callback : (?printerInfo : PrinterInfo)->Void
 	)->Void>;
 
@@ -35,7 +35,7 @@ extern class PrinterProvider {
 	*/
 	static final onGetCapabilityRequested : Event<(
 		printerId : String,
-		callback : (capabilities : Dynamic<Any>)->Void
+		callback : (capabilities : Dynamic)->Void
 	)->Void>;
 
 	/**
@@ -96,7 +96,7 @@ typedef PrintJob = {
 	/**
 	* Print ticket in [CJT format](https://developers.google.com/cloud-print/docs/cdd#cjt).
 	*/
-	var ticket : Dynamic<Any>; // {[name: string]: any}
+	var ticket : Dynamic; // {[name: string]: any}
 
 	/**
 	* The document content type. Supported formats are `"application/pdf"` and `"image/pwg-raster"`.

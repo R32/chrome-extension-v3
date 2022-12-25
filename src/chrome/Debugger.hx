@@ -13,8 +13,10 @@ package chrome;
 extern class Debugger {
 	/**
 	* Fired whenever debugging target issues instrumentation event.
+	*
+	* params type is {[name: string]: any}
 	*/
-	static final onEvent : Event<(source : Debuggee, method : String, ?params : Dynamic<Any>)->Void>;
+	static final onEvent : Event<(source : Debuggee, method : String, ?params : Dynamic)->Void>;
 
 	/**
 	* Fired when browser terminates debugging session for the tab.
@@ -61,9 +63,9 @@ extern class Debugger {
 	* the callback will be called with no arguments and {@link runtime.lastError}
 	* will be set to the error message.
 	*/
-	overload static function sendCommand( target : Debuggee, method : String, callback : (Dynamic<Any>)->Void ) : Void;
-	overload static function sendCommand( target : Debuggee, method : String,  commandParams : Dynamic<Any>, callback : (Dynamic<Any>)->Void ) : Void;
-	overload static function sendCommand( target : Debuggee, method : String, ?commandParams : Dynamic<Any> ) : Promise<Dynamic<Any>>;
+	overload static function sendCommand( target : Debuggee, method : String, callback : (Dynamic)->Void ) : Void;
+	overload static function sendCommand( target : Debuggee, method : String,  commandParams : Dynamic, callback : (Dynamic)->Void ) : Void;
+	overload static function sendCommand( target : Debuggee, method : String, ?commandParams : Dynamic ) : Promise<Dynamic>;
 
 	/**
 	* Returns the list of available debug targets.

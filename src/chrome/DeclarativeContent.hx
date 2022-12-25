@@ -96,12 +96,12 @@ extern class ShowAction {
 */
 @:native("chrome.declarativeContent.SetIcon")
 extern class SetIcon {
-	function new( arg : EitherType<SetIcon, {?imageData : EitherType<ImageDataType, Dynamic<Any>>}> );
+	function new( arg : EitherType<SetIcon, {?imageData : EitherType<ImageDataType, Dynamic>}> );
 
 	/**
 	* Either an `ImageData` object or a dictionary {size -> ImageData} representing an icon to be set. If the icon is specified as a dictionary, the image used is chosen depending on the screen's pixel density. If the number of image pixels that fit into one screen space unit equals `scale`, then an image with size `scale * n` is selected, where _n_ is the size of the icon in the UI. At least one image must be specified. Note that `details.imageData = foo` is equivalent to `details.imageData = {'16': foo}`.
 	*/
-	var imageData : EitherType<ImageDataType, Dynamic<Any>>;
+	var imageData : EitherType<ImageDataType, Dynamic>;
 }
 
 /**

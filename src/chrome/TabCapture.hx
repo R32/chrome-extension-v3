@@ -81,9 +81,9 @@ typedef CaptureInfo = {
 
 typedef MediaStreamConstraint = {
 
-	var mandatory : Dynamic<Any>;
+	var mandatory : Dynamic; // {[name: string]: any}
 
-	var ?optional : Dynamic<Any>;
+	var ?optional : Dynamic; // {[name: string]: any}
 }
 
 typedef CaptureOptions = {

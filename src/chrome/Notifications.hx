@@ -93,7 +93,7 @@ extern class Notifications {
 	*
 	* @param callback Returns the set of notification\_ids currently in the system.
 	*/
-	static function getAll( callback : (notifications : Dynamic<Any>)->Void ) : Void;
+	static function getAll( callback : (notifications : Dynamic)->Void ) : Void;
 
 	/**
 	* Retrieves whether the user has enabled notifications from this app or extension.

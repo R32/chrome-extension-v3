@@ -55,7 +55,7 @@ extern class Runtime {
 	* for this event, and your extension has a persistent background page,
 	* it behaves as if chrome.runtime.reload() is called in response to this event.
 	*/
-	static final onUpdateAvailable : Event<{name : Dynamic<Any>, version : String}->Void>;
+	static final onUpdateAvailable : Event<{name : Dynamic, version : String}->Void>;
 
 	/**
 	* Fired when a Chrome update is available, but isn't installed immediately
@@ -151,7 +151,7 @@ extern class Runtime {
 	*
 	* @returns The manifest details.
 	*/
-	static function getManifest() : Dynamic<Any>;
+	static function getManifest() : Dynamic; // {[name: string]: any}
 
 	/**
 	* Converts a relative path within an app/extension install directory to a fully-qualified URL.
@@ -257,10 +257,10 @@ extern class Runtime {
 	* @param extensionId The ID of the extension/app to send the message to. If omitted, the message will be sent to your own extension/app. Required if sending messages from a web page for [web messaging](https://developer.chrome.com/docs/extensions/manifest/externally_connectable).
 	* @param message The message to send. This message should be a JSON-ifiable object.
 	*/
-	overload static function sendMessage( message : Any, options : {?includeTlsChannelId : Bool}, callback : Any->Void ) : Void;
-	overload static function sendMessage( extensionId : String, message : Any, options : {?includeTlsChannelId : Bool}, callback : Any->Void ) : Void;
-	overload static function sendMessage( message : Any, ?options : {?includeTlsChannelId : Bool} ) : Promise<Any>;
-	overload static function sendMessage( extensionId : String, message : Any, ?options : {?includeTlsChannelId : Bool} ) : Promise<Any>;
+	overload static function sendMessage( message : Dynamic, options : {?includeTlsChannelId : Bool}, callback : Any->Void ) : Void;
+	overload static function sendMessage( extensionId : String, message : Dynamic, options : {?includeTlsChannelId : Bool}, callback : Any->Void ) : Void;
+	overload static function sendMessage( message : Dynamic, ?options : {?includeTlsChannelId : Bool} ) : Promise<Any>;
+	overload static function sendMessage( extensionId : String, message : Dynamic, ?options : {?includeTlsChannelId : Bool} ) : Promise<Any>;
 
 	/**
 	* Send a single message to a native application.
@@ -269,8 +269,8 @@ extern class Runtime {
 	* @param message The message that will be passed to the native messaging host.
 	* @chrome-permission nativeMessaging
 	*/
-	overload static function sendNativeMessage( application : String, message : Dynamic<Any>, callback : Any->Void ) : Void;
-	overload static function sendNativeMessage( application : String, message : Dynamic<Any> ) : Promise<Any>;
+	overload static function sendNativeMessage( application : String, message : Dynamic, callback : Any->Void ) : Void;
+	overload static function sendNativeMessage( application : String, message : Dynamic ) : Promise<Any>;
 
 	/**
 	* Returns information about the current platform.

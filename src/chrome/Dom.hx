@@ -13,5 +13,5 @@ extern class Dom {
 	*
 	* @returns See [https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot)
 	*/
-	static function openOrClosedShadowRoot( element : DOMElement ) : Dynamic<Any>;
+	static function openOrClosedShadowRoot( element : DOMElement ) : Dynamic;
 }

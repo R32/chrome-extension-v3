@@ -1,0 +1,11 @@
+{
+	"name": "chrome-extension-v3",
+	"url": "https://github.com/r32/chrome-extension-v3",
+	"license": "MIT",
+	"tags": ["extension"],
+	"description": "Extern type definitions for Chrome Extension V3",
+	"version": "0.0.1",
+	"releasenote": "",
+	"contributors": ["r32"],
+	"classPath" : "src"
+}

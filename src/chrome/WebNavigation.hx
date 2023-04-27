@@ -13,7 +13,7 @@ extern class WebNavigation {
 	* Fired when a navigation is about to occur.
 	*/
 	static final onBeforeNavigate : CustomChromeEvent<(
-		callback : DetailsBase,
+		callback : DetailsBase->Void,
 		?filters : {
 			/**
 			* Conditions that the URL being navigated to must satisfy.
@@ -30,7 +30,7 @@ extern class WebNavigation {
 	* the browser has decided to switch to the new document.
 	*/
 	static final onCommitted : CustomChromeEvent<(
-		callback : DetailsBase & {
+		callback : (DetailsBase & {
 			/**
 			* Cause of the navigation.
 			*/
@@ -45,7 +45,7 @@ extern class WebNavigation {
 			* @since Chrome 106
 			*/
 			documentId : String,
-		},
+		})->Void,
 		?filters : {
 			url : Array<Events.UrlFilter>
 		}
@@ -56,9 +56,9 @@ extern class WebNavigation {
 	* but the referenced resources may not finish loading.
 	*/
 	static final onDOMContentLoaded : CustomChromeEvent<(
-		callback : DetailsBase & {
+		callback : (DetailsBase & {
 			documentId : String,
-		},
+		})->Void,
 		?filters : {
 			url : Array<Events.UrlFilter>
 		}
@@ -69,9 +69,9 @@ extern class WebNavigation {
 	* is completely loaded and initialized.
 	*/
 	static final onCompleted : CustomChromeEvent<(
-		callback : DetailsBase & {
+		callback : (DetailsBase & {
 			documentId : String,
-		},
+		})->Void,
 		?filters : {
 			url : Array<Events.UrlFilter>
 		}
@@ -83,10 +83,10 @@ extern class WebNavigation {
 	* or the user aborted the navigation.
 	*/
 	static final onErrorOccurred : CustomChromeEvent<(
-		callback : DetailsBase & {
+		callback : (DetailsBase & {
 			documentId : String,
 			error: String,
-		},
+		})->Void,
 		?filters : {
 			url : Array<Events.UrlFilter>
 		}
@@ -97,7 +97,7 @@ extern class WebNavigation {
 	* is created to host a navigation.
 	*/
 	static final onCreatedNavigationTarget : CustomChromeEvent<(
-		callback : {
+		callback : ({
 			/**
 			* The ID of the tab in which the navigation is triggered.
 			*/
@@ -124,7 +124,7 @@ extern class WebNavigation {
 			* in milliseconds since the epoch.
 			*/
 			timeStamp: Float,
-		},
+		})->Void,
 		?filters : {
 			url : Array<Events.UrlFilter>
 		}
@@ -135,11 +135,11 @@ extern class WebNavigation {
 	* All future events for that frame will use the updated URL.
 	*/
 	static final onReferenceFragmentUpdated : CustomChromeEvent<(
-		callback : DetailsBase & {
+		callback : (DetailsBase & {
 			transitionType: TransitionType,
 			transitionQualifiers: Array<TransitionQualifier>,
 			documentId : String,
-		},
+		})->Void,
 		?filters : {
 			url : Array<Events.UrlFilter>
 		}
@@ -150,7 +150,7 @@ extern class WebNavigation {
 	* (usually previously pre-rendered) tab.
 	*/
 	static final onTabReplaced : CustomChromeEvent<(
-		callback : {
+		callback : ({
 			/**
 			 * The ID of the tab that was replaced.
 			 */
@@ -159,7 +159,7 @@ extern class WebNavigation {
 			tabId: Int,
 
 			timeStamp: Float,
-		}
+		})->Void
 	)->Void>;
 
 	/**
@@ -167,11 +167,11 @@ extern class WebNavigation {
 	* All future events for that frame will use the updated URL.
 	*/
 	static final onHistoryStateUpdated : CustomChromeEvent<(
-		callback : DetailsBase & {
+		callback : (DetailsBase & {
 			transitionType: TransitionType,
 			transitionQualifiers: Array<TransitionQualifier>,
 			documentId : String,
-		},
+		})->Void,
 		?filters : {
 			url : Array<Events.UrlFilter>
 		}

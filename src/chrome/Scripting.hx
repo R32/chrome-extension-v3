@@ -20,8 +20,8 @@ extern class Scripting {
 	* The resulting array contains the result of execution f
 	* or each frame where the injection succeeded.
 	*/
-	overload static function executeScript( injection : CSSInjection, callback : ()->Void ) : Void;
-	overload static function executeScript( injection : CSSInjection ) : Promise<Void>;
+	overload static function executeScript( injection : ScriptInjection, callback : ()->Void ) : Void;
+	overload static function executeScript( injection : ScriptInjection ) : Promise<Void>;
 
 	/**
 	* Inserts a CSS stylesheet into a target context. If multiple frames are specified,
@@ -154,7 +154,7 @@ typedef ScriptInjection = {
 	*
 	* @since Chrome 92
 	*/
-	var ?func : ()->Void;
+	var ?func : Function;
 
 	/**
 	* The arguments to curry into a provided function. This is only valid if the

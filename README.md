@@ -3,6 +3,7 @@ chrome extension v3
 
 Extern type definitions for Chrome Extension
 
+(I haven't tested it yet, there will be a lot of bugs)
 
 ### summary
 

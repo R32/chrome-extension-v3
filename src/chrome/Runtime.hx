@@ -257,8 +257,10 @@ extern class Runtime {
 	* @param extensionId The ID of the extension/app to send the message to. If omitted, the message will be sent to your own extension/app. Required if sending messages from a web page for [web messaging](https://developer.chrome.com/docs/extensions/manifest/externally_connectable).
 	* @param message The message to send. This message should be a JSON-ifiable object.
 	*/
-	overload static function sendMessage( message : Dynamic, ?options : {?includeTlsChannelId : Bool}, ?callback : Dynamic->Void ) : Void;
-	overload static function sendMessage( extensionId : String, message : Dynamic, ?options : {?includeTlsChannelId : Bool}, ?callback : Dynamic->Void ) : Void;
+	overload static function sendMessage( message : Dynamic, callback : Dynamic->Void ) : Void;
+	overload static function sendMessage( message : Dynamic, options : {?includeTlsChannelId : Bool}, callback : Dynamic->Void ) : Void;
+	overload static function sendMessage( extensionId : String, message : Dynamic, callback : Dynamic->Void ) : Void;
+	overload static function sendMessage( extensionId : String, message : Dynamic, options : {?includeTlsChannelId : Bool}, callback : Dynamic->Void ) : Void;
 	overload static function sendMessage( message : Dynamic, ?options : {?includeTlsChannelId : Bool} ) : Promise<Dynamic>;
 	overload static function sendMessage( extensionId : String, message : Dynamic, ?options : {?includeTlsChannelId : Bool} ) : Promise<Dynamic>;
 

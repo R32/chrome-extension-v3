@@ -27,7 +27,7 @@ extern class I18n {
 	* Closure Templates used with Closure Compiler generate this automatically.
 	* @returns Message localized for current locale.
 	*/
-	static function getMessage( messageName : String, ?substitutions : Dynamic, ?options : {?escapeLt : Bool} ) : Void;
+	static function getMessage( messageName : String, ?substitutions : Dynamic, ?options : {?escapeLt : Bool} ) : String;
 
 	/**
 	* Gets the browser UI language of the browser. This is different from

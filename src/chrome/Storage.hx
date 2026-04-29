@@ -78,7 +78,8 @@ extern class StorageArea {
 	* @param callback Callback with storage items,
 	* or on failure (in which case {@link runtime.lastError} will be set).
 	*/
-	function get( keys : Keys, callback : Values->Void ) : Void;
+	overload function get( keys : Keys, callback : Values->Void ) : Void;
+	overload function get( keys : Keys ) : Promise<Void>;
 
 	/**
 	* Gets the amount of space (in bytes) being used by one or more items.
